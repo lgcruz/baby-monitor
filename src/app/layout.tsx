@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { BabyIcon } from "@/Components/Icons/BabyIcon";
+import VolumeIcon from "@/Components/Icons/VolumeIcon";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <h2 className="text-[45px] font-bold justify-center flex items-center w-full">Monitor <BabyIcon className={"ml-2"} fill="black" width={32} height={32} /> </h2>
+        {children}
+        <nav className="sticky bottom-2 bg-black rounded-xl p-2 m-4">
+          <ul className="flex flex-row">
+            <li className="flex rounded-lg bg-gray-200 justify-center items-center p-4"><VolumeIcon width={40} height={40} fill="black" className=""/></li>
+          </ul>
+        </nav>
+      </body>
     </html>
   );
 }
